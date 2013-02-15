@@ -1,0 +1,24 @@
+<?php
+
+function wadl_permission() {
+  return array(
+    "administer wadl settings" => array(
+      "title" => t("Administer WADL settings."),
+      "description" => t("Perform administration tasks for WADL module.")
+    )
+  );
+}
+
+
+function wadl_menu() {
+  $items = array();
+  $items['wadl'] = array(
+    'title' => 'WADL main page',
+    'page callback' => 'wadl_main',
+    'access arguments' => true,
+    'type' => MENU_LOCAL_TASK,
+    'file' => "wadl.pages.inc",
+    'menu_name' => 'wadl',
+  );
+  return $items;
+}
