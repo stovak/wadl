@@ -1,0 +1,26 @@
+<?php
+
+
+
+
+class WADLTestCase extends DrupalWebTestCase {
+
+  public static function getInfo() {
+    return array(
+      'name' => 'WADL Test Case',
+      'description' => 'Test Case for WADL Module',
+      'group' => 'WADL'
+    );
+  }
+
+  public function setUp() {
+    parent::setUp("wadl_test");
+  }
+
+  public function testNoWADLPresent() {
+    $this->drupalGet('wadl');
+    $this->assertResponse(200, t("Should redirect to wadl/add."));
+
+  }
+
+}

@@ -9,6 +9,14 @@
  */
 function wadl_content_types_node_info() {
   $items = array(
+    'application' => array(
+      'name' => t('API WADL Application'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
+      'help' => '',
+    ),
     'documentation' => array(
       'name' => t('API WADL Documentation Node'),
       'base' => 'node_content',
@@ -47,6 +55,14 @@ function wadl_content_types_node_info() {
       'description' => '',
       'has_title' => '1',
       'title_label' => t('Path'),
+      'help' => '',
+    ),
+    'wadl' => array(
+      'name' => t('API WADL'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Title'),
       'help' => '',
     ),
   );

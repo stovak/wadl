@@ -9,16 +9,62 @@ function wadl_permission() {
   );
 }
 
+function wadl_theme_registry_alter(&$registry) {
+  $registry['node']['preprocess functions'][] = "wadl_preprocess_node";
+}
 
 function wadl_menu() {
   $items = array();
   $items['wadl'] = array(
-    'title' => 'WADL main page',
-    'page callback' => 'wadl_main',
+    'title' => 'The API WADL',
+    'page callback' => 'wadl_show',
     'access arguments' => true,
+    'access callback' => true,
+    'type' => MENU_LOCAL_TASK,
+    'file' => "wadl.pages.inc",
+    'menu_name' => 'wadl',
+  );
+  $items['wadl/add'] = array(
+    'title' => 'Add Primary WADL',
+    'page callback' => 'wadl_add',
+    'access arguments' => true,
+    'access callback' => true,
     'type' => MENU_LOCAL_TASK,
     'file' => "wadl.pages.inc",
     'menu_name' => 'wadl',
   );
   return $items;
+}
+
+
+function wadl_form_wadl_node_form_alter(&$form, &$form_state, $form_id) {
+  $form['title']['#value'] = "Primary WADL";
+  $form['title']['#access'] = false;
+  $form['author']['#access'] = false;
+  $form['book']['#access'] = false;
+  $form['comment_settings']['#access'] = false;
+  $form['menu']['#access'] = false;
+  $form['revision_information']['#access'] = false;
+  $form['path']['#access'] = false;
+  $form['options']['#access'] = false;
+  $form['options']['status']['#default_value'] = true;
+  $form['options']['promoted']['#default_value'] = false;
+  $form['options']['sticky']['#default_value'] = false;
+  $form['metatags']['#access'] = false;
+  $form['metatags']['#access'] = false;
+  $form['field_wadl'][LANGUAGE_NONE][0]['xml']['#rows'] = 30;
+  $form['field_wadl'][LANGUAGE_NONE][0]['xml']['#title'] = "Copy and paste your WADL here. Then click 'save'.";
+  //print_r($form['field_wadl'][LANGUAGE_NONE][0]['xml']);
+}
+
+
+function wadl_preprocess_node(&$variables) {
+  switch($variables['type']) {
+    case "wadl":
+        //$variables['field_wadl'][0]['xml']
+        echo "<pre>".print_r($variables, true)."</pre>";
+        break;
+    default:
+
+  }
 }

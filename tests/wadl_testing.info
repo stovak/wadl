@@ -1,0 +1,9 @@
+name = WADL Testing Mod
+description = Simpletests for WADL module
+core = 7.x
+package = WADL
+php = 5.3.0
+
+dependencies[] = wadl
+
+files[] = WADLTestCase.test

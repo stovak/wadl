@@ -1,0 +1,7 @@
+name = WADL Main Module
+description = Main functionality of the WADL module
+core = 7.x
+package = WADL
+php = 5.3.0
+
+dependencies[] = wadl_content_types
