@@ -41,20 +41,20 @@ function wadl_content_types_node_info() {
       'title_label' => t('Name'),
       'help' => '',
     ),
-    'wadl_resources' => array(
-      'name' => t('API WADL Resouces Base'),
-      'base' => 'node_content',
-      'description' => '',
-      'has_title' => '1',
-      'title_label' => t('Base'),
-      'help' => '',
-    ),
     'wadl_resource' => array(
       'name' => t('API WADL Resource Node'),
       'base' => 'node_content',
       'description' => '',
       'has_title' => '1',
       'title_label' => t('Path'),
+      'help' => '',
+    ),
+    'wadl_resources' => array(
+      'name' => t('API WADL Resouces Base'),
+      'base' => 'node_content',
+      'description' => '',
+      'has_title' => '1',
+      'title_label' => t('Base'),
       'help' => '',
     ),
     'wadl_wadl' => array(
